@@ -1,0 +1,124 @@
+package com.universidadegh.university.entities;
+
+import java.io.Serializable;
+import java.util.Objects;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+
+@Entity
+@Table(name = "tb_turma")
+public class Turma implements Serializable {
+
+	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long cod_turma;
+	
+	private String turno;
+	
+	private String dia_semana;
+	
+	private String situacao;
+
+	@ManyToOne
+	private Disciplina disciplina;
+	
+	
+	@ManyToOne
+	private Professor professor;
+
+	public Turma(Long cod_turma, String turno, String dia_semana, String situacao, Disciplina disciplina,
+			Professor professor) {
+		this.cod_turma = cod_turma;
+		this.turno = turno;
+		this.dia_semana = dia_semana;
+		this.situacao = situacao;
+		this.disciplina = disciplina;
+		this.professor = professor;
+	}
+
+	public Turma() {
+		super();
+	}
+
+	public String getTurno() {
+		return turno;
+	}
+
+	public void setTurno(String turno) {
+		this.turno = turno;
+	}
+
+	public String getDia_semana() {
+		return dia_semana;
+	}
+
+	public void setDia_semana(String dia_semana) {
+		this.dia_semana = dia_semana;
+	}
+
+	public String getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(String situacao) {
+		this.situacao = situacao;
+	}
+
+	public Disciplina getDisciplina() {
+		return disciplina;
+	}
+
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
+	}
+
+	public Professor getProfessor() {
+		return professor;
+	}
+
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
+	}
+
+	public Long getCod_turma() {
+		return cod_turma;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(cod_turma);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Turma other = (Turma) obj;
+		return Objects.equals(cod_turma, other.cod_turma);
+	}
+
+	@Override
+	public String toString() {
+		return "Turma [cod_turma=" + cod_turma + ", turno=" + turno + ", dia_semana=" + dia_semana + ", situacao="
+				+ situacao + ", disciplina=" + disciplina + ", professor=" + professor + "]";
+	}
+	
+	
+	
+	
+	
+	
+}

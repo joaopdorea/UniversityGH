@@ -1,0 +1,15 @@
+package com.universidadegh.university.entities.pk;
+
+import java.io.Serializable;
+
+public class RealizaPK implements Serializable {
+
+	
+	private static final long serialVersionUID = 1L;
+	
+	
+	
+	
+	
+	
+}

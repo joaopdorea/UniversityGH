@@ -1,0 +1,17 @@
+package com.universidadegh.university.entities;
+
+import java.io.Serializable;
+
+public class Questao implements Serializable {
+
+
+	private static final long serialVersionUID = 1L;
+	
+	private Long id;
+	
+	private Prova prova;
+	
+	private String enunciado;
+	
+	
+}

@@ -1,0 +1,150 @@
+package com.universidadegh.university.entities;
+
+import java.io.Serializable;
+import java.time.Instant;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+
+
+@Entity
+@Table(name = "tb_prova")
+public class Prova implements Serializable{
+	
+	
+	private static final long serialVersionUID = 1L;
+
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	private Instant data_prova;
+	
+	private int peso;
+	
+	private String situacao;
+	
+	
+	@ManyToOne
+	@JoinColumn(name="turma_id")
+	private Turma turma;
+	
+	
+	@OneToMany(mappedBy = "id.prova")
+	private Set<Realiza> realizacoes = new HashSet<>();
+	
+	@OneToMany(mappedBy = "prova")
+	private Set<Questao> questoes = new HashSet<>();
+	
+
+	public Prova(Long id, Instant data_prova, int peso, String situacao, Turma turma) {
+		this.id = id;
+		this.data_prova = data_prova;
+		this.peso = peso;
+		this.situacao = situacao;
+		this.turma = turma;
+	}
+
+
+	public Prova() {
+	}
+
+
+	public Instant getData_prova() {
+		return data_prova;
+	}
+
+
+	public void setData_prova(Instant data_prova) {
+		this.data_prova = data_prova;
+	}
+
+
+	public int getPeso() {
+		return peso;
+	}
+
+
+	public void setPeso(int peso) {
+		this.peso = peso;
+	}
+
+
+	public String getSituacao() {
+		return situacao;
+	}
+
+
+	public void setSituacao(String situacao) {
+		this.situacao = situacao;
+	}
+
+
+	public Turma getTurma() {
+		return turma;
+	}
+	
+	
+
+
+	@JsonIgnore
+	public Set<Matricula> getMatriculas() {
+		Set<Matricula> set = new HashSet<>();
+		for (Realiza x : realizacoes) {
+			set.add(x.getMatricula());
+		}
+		return set;
+	}
+
+	public void setTurma(Turma turma) {
+		this.turma = turma;
+	}
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Prova other = (Prova) obj;
+		return Objects.equals(id, other.id);
+	}
+
+
+	@Override
+	public String toString() {
+		return "Prova [id=" + id + ", data_prova=" + data_prova + ", peso=" + peso + ", situacao=" + situacao
+				+ ", turma=" + turma + "]";
+	}
+	
+	
+
+	
+}

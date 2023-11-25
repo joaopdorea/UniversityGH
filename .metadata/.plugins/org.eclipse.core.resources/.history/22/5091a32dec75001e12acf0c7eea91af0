@@ -1,0 +1,24 @@
+package com.universidadegh.university.entities;
+
+import java.io.Serializable;
+import java.time.Instant;
+
+public class Aluno implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
+	private Long cod_aluno;
+	
+	private String CPF;
+	
+	private String nome_aluno;
+	
+	private Instant data_nasc;
+	
+	
+	
+}

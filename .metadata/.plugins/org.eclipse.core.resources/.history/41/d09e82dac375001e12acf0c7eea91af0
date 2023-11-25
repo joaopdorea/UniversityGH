@@ -1,0 +1,23 @@
+package com.universidadegh.university.resources;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.universidadegh.university.entities.Professor;
+
+@RestController
+@RequestMapping(value = "/Professors")
+public class ProfessorResource {
+	
+	
+	public ResponseEntity<Professor> findAll(){
+		
+		Professor p = new Professor(1L, "111.111.111-11", "George Hamilton", "Doutor");
+		return ResponseEntity.ok().body(u);
+		
+	}
+	
+	
+	
+}

@@ -1,0 +1,123 @@
+package com.universidadegh.university.entities;
+
+import java.io.Serializable;
+import java.util.Objects;
+
+public class Professor implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Long id_professor;
+	private String CPF;
+	private String nome_professor;
+	private String especialidade;
+	
+	
+	
+	public Professor(Long id_professor, String CPF, String nome_professor, String especialidade) {
+		this.id_professor = id_professor;
+		this.CPF = CPF;
+		this.nome_professor = nome_professor;
+		this.especialidade = especialidade;
+	}
+
+
+
+	public Professor() {
+	}
+
+
+
+	public Long getId_professor() {
+		return id_professor;
+	}
+
+
+
+	public void setId_professor(Long id_professor) {
+		this.id_professor = id_professor;
+	}
+
+
+
+	public String getNome_professor() {
+		return nome_professor;
+	}
+
+
+
+	public void setNome_professor(String nome_professor) {
+		this.nome_professor = nome_professor;
+	}
+
+
+
+	public String getEspecialidade() {
+		return especialidade;
+	}
+
+
+
+	public void setEspecialidade(String especialidade) {
+		this.especialidade = especialidade;
+	}
+
+
+
+	public String getCPF() {
+		return CPF;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Professor [id_professor=" + id_professor + ", CPF=" + CPF + ", nome_professor=" + nome_professor
+				+ ", especialidade=" + especialidade + "]";
+	}
+
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(CPF, nome_professor);
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Professor other = (Professor) obj;
+		return Objects.equals(CPF, other.CPF) && Objects.equals(nome_professor, other.nome_professor);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

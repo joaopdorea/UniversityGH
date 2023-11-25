@@ -1,0 +1,100 @@
+package com.universidadegh.university.entities;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+
+
+@Entity
+@Table(name = "tb_disciplina")
+public class Disciplina implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long cod_disciplina;
+	
+	private String nome_disciplina;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "disciplina")
+	private List<Turma> turmas = new ArrayList<>();
+	
+	
+	
+	public Disciplina() {
+	}
+
+
+
+	public Disciplina(Long cod_disciplina, String nome_disciplina) {
+		this.cod_disciplina = cod_disciplina;
+		this.nome_disciplina = nome_disciplina;
+	}
+	
+	
+	
+	public String getNome_disciplina() {
+		return nome_disciplina;
+	}
+	public void setNome_disciplina(String nome_disciplina) {
+		this.nome_disciplina = nome_disciplina;
+	}
+	public Long getCod_disciplina() {
+		return cod_disciplina;
+	}
+
+
+
+	public List<Turma> getTurmas() {
+		return turmas;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Disciplina [cod_disciplina=" + cod_disciplina + ", nome_disciplina=" + nome_disciplina + "]";
+	}
+
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(cod_disciplina);
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Disciplina other = (Disciplina) obj;
+		return Objects.equals(cod_disciplina, other.cod_disciplina);
+	}
+	
+	
+	
+	
+	
+}

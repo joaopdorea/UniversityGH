@@ -1,0 +1,20 @@
+package com.universidadegh.university.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.universidadegh.university.entities.Professor;
+import com.universidadegh.university.repositories.ProfessorRepository;
+
+public class ProfessorService {
+	
+	@Autowired
+	private ProfessorRepository repository;
+	
+	public List<Professor> findAll(){
+		return repository.findAll();
+	}
+	
+	
+}

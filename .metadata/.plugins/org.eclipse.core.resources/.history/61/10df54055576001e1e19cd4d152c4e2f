@@ -1,0 +1,34 @@
+package com.universidadegh.university.entities;
+
+import java.time.Instant;
+
+import com.universidadegh.university.entities.pk.MatriculaPK;
+
+public class Matricula {
+	
+	private MatriculaPK id;
+	
+	private String periodo;
+	private Instant data_inicio;
+	private Instant data_fim;
+	
+	
+	public Matricula(MatriculaPK id, String periodo, Instant data_inicio, Instant data_fim) {
+		this.id = id;
+		this.periodo = periodo;
+		this.data_inicio = data_inicio;
+		this.data_fim = data_fim;
+	}
+
+
+	public Matricula() {
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+}

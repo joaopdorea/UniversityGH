@@ -1,0 +1,5 @@
+package com.universidadegh.university.entities.pk;
+
+public class MatriculaPK {
+
+}

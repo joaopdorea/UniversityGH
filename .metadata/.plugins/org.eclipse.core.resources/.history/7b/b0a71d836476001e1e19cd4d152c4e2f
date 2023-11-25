@@ -1,0 +1,21 @@
+package com.universidadegh.university.entities;
+
+import java.time.Instant;
+
+import com.universidadegh.university.entities.pk.RealizaPK;
+
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="tb_realiza")
+public class Realiza {
+	
+private static final long serialVersionUID = 1L;
+	
+	@EmbeddedId
+	private RealizaPK id = new RealizaPK();
+	
+	private double nota;
+}

@@ -1,0 +1,57 @@
+package com.universidadegh.university.entities;
+
+import java.io.Serializable;
+import java.time.Instant;
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
+public class Prova implements Serializable{
+	
+	
+	private static final long serialVersionUID = 1L;
+
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	private Instant data_prova;
+	
+	private int peso;
+	
+	private String situacao;
+	
+	
+	@ManyToOne
+	@JoinColumn(name="turma_id")
+	private Turma turma;
+
+
+	public Prova(Long id, Instant data_prova, int peso, String situacao, Turma turma) {
+		this.id = id;
+		this.data_prova = data_prova;
+		this.peso = peso;
+		this.situacao = situacao;
+		this.turma = turma;
+	}
+
+
+	public Prova() {
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

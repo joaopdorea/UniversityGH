@@ -1,0 +1,17 @@
+package com.universidadegh.university.resources;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class ProfessorResource {
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

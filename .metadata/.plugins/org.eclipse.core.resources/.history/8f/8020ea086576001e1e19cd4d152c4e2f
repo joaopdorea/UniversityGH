@@ -1,0 +1,5 @@
+package com.universidadegh.university.repositories;
+
+public interface RealizaRepository {
+
+}

@@ -1,0 +1,23 @@
+package com.universidadegh.university.entities;
+
+import java.io.Serializable;
+import java.time.Instant;
+
+public class Prova implements Serializable{
+	
+	
+	private static final long serialVersionUID = 1L;
+
+	private Long id;
+	
+	private Instant data_prova;
+	
+	private int peso;
+	
+	private String situacao;
+	
+	
+	
+	
+	
+}

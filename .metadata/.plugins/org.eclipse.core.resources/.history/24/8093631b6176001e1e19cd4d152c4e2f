@@ -1,0 +1,31 @@
+package com.universidadegh.university.entities;
+
+import java.io.Serializable;
+import java.time.Instant;
+
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
+public class Prova implements Serializable{
+	
+	
+	private static final long serialVersionUID = 1L;
+
+	private Long id;
+	
+	private Instant data_prova;
+	
+	private int peso;
+	
+	private String situacao;
+	
+	
+	@ManyToOne
+	@JoinColumn(name="turma_id")
+	private Turma turma;
+	
+	
+	
+	
+	
+}

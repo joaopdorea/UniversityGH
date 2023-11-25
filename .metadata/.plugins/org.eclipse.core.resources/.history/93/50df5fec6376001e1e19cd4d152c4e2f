@@ -1,0 +1,27 @@
+package com.universidadegh.university.entities.pk;
+
+import java.io.Serializable;
+
+import com.universidadegh.university.entities.Matricula;
+import com.universidadegh.university.entities.Prova;
+
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
+public class RealizaPK implements Serializable {
+
+	
+	private static final long serialVersionUID = 1L;
+	
+	
+	@ManyToOne
+	@JoinColumn(name = "prova_id")
+	private Prova prova;
+	
+	
+	@ManyToOne
+	@JoinColumn(name = "matricula_id")
+	private Matricula matricula;
+	
+	
+}

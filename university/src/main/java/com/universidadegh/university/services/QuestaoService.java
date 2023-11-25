@@ -1,0 +1,27 @@
+package com.universidadegh.university.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.universidadegh.university.entities.Questao;
+import com.universidadegh.university.repositories.QuestaoRepository;
+
+
+@Service
+public class QuestaoService {
+
+	@Autowired
+	private QuestaoRepository repository;
+	
+	public List<Questao> findAll(){
+		return repository.findAll();
+	}
+	
+	public Questao findById(Long id) {
+		Optional<Questao> obj = repository.findById(id);
+		return obj.get();
+	}
+}

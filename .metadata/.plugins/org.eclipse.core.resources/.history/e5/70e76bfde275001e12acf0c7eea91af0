@@ -1,0 +1,10 @@
+package com.universidadegh.university.services;
+
+import com.universidadegh.university.repositories.ProfessorRepository;
+
+public class ProfessorService {
+	
+	private ProfessorRepository repository;
+	
+	
+}

@@ -1,0 +1,62 @@
+package com.universidadegh.university.entities;
+
+import java.io.Serializable;
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
+
+
+@Entity
+@Table(name = "tb_aluno")
+public class Aluno implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long cod_aluno;
+	
+	private String CPF;
+	
+	private String nome_aluno;
+	
+	private Instant data_nasc;
+	
+	@ManyToMany
+	private List<Turma> turmas = new ArrayList<>();
+
+	public Aluno(Long cod_aluno, String cPF, String nome_aluno, Instant data_nasc, List<Turma> turmas) {
+		this.cod_aluno = cod_aluno;
+		CPF = cPF;
+		this.nome_aluno = nome_aluno;
+		this.data_nasc = data_nasc;
+		this.turmas = turmas;
+	}
+
+	public Aluno() {
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
